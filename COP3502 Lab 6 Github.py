@@ -10,7 +10,7 @@ def main():
         if int(user_input) == 1:
             encoded_password = encode()
         elif int(user_input) == 2:
-            decode()
+            decoded_password = decode(encoded_password)
         elif int(user_input) == 3:
             exit()
         else:
@@ -52,8 +52,17 @@ def encode():
     print()
     return encoded_password
 
-def decode():
-    pass
+def decode(encoded_password): #Brody Rayhill's Decoder function with encoded password parameter
+    
+    decoded_list = []
+    for i in encoded_password:
+        num = int(i)
+        decoded_list.append(num)
+    for i in range(len(decoded_list)):
+        decoded_list[i] = str(decoded_list[i] - 3)
+    decoded_password = ''.join(decoded_list)
+    print("The encoded password is "+encoded_password+", and the original password is "+decoded_password+".")
+    return decoded_password
 
 if __name__ == "__main__":
     main()
